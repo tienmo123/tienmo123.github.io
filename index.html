@@ -39,8 +39,15 @@
         .normal-wrapper {
             width: 700px;
             margin: 0 auto;
-            padding: 15px 40px;
+            padding: center;
             overflow: auto;
+        }
+        
+        .normal-wrapper-clone {
+            width: 700px;
+            margin: 0 auto;
+            padding: center;
+            bottom: 10px;
         }
         
         .logo-icon {
@@ -230,6 +237,8 @@
             /* Add shadows to create the "card" effect */
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
+            overflow: auto;
+            align-self: center;
         }
         /* On mouse-over, add a deeper shadow */
         
@@ -241,6 +250,11 @@
         .containercard {
             padding: 10px 50px;
         }
+        
+        .media {
+            margin: 0 auto;
+            padding: center;
+        }
     </style>
 </head>
 
@@ -251,7 +265,7 @@
         <div id="top-bar"></div>
         <div class="normal-wrapper">
             <center>
-                <h1>Thông tin cá nhân</h1>
+                <h1>Thông tin của Tiến</h1>
             </center>
         </div>
         <div id="top-color-splash"></div>
@@ -293,7 +307,7 @@
 
 
     <!--Video-->
-    <div class="card">
+    <div class="media">
         <nav>
             <h1>Video</h1>
             <br/>
@@ -312,7 +326,7 @@
         </nav>
     </div>
     <!--ảnh-->
-    <div class="card">
+    <div class="media">
         <nav>
             <h1>Ảnh</h1>
             <br/>
@@ -339,12 +353,13 @@
         </nav>
     </div>
     </div>
+
     </article>
 
 
     <!--footer-->
 
-    <div class="normal-wrapper">
+    <div class="normal-wrapper-clone">
         <div class="icon-outer">
             <div class="icon-circle">
                 <i class="fa fa-youtube"></i>
