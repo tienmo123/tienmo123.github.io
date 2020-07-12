@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>VMT</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        /* CSS goes here, at the top of the page */
+        
+        @import url('https://fonts.googleapis.com/css?family=PT+Sans');
+        @import url('https://fonts.googleapis.com/css?family=PT+Serif');
+        h1,
+        h2,
+        h4,
+        h5,
+        h6 {
+            font-family: 'PT Sans', 'Helvetica', 'Arial';
+            ;
+        }
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'PT Serif', 'Helvetica', 'Arial';
+        }
+        
+        #top-bar {
+            width: 100%;
+            background: #F1F1F1;
+            /* light gray */
+            border-bottom: 1px solid #D4D4D4;
+            /* dark gray "underline" */
+            height: 25px;
+        }
+        
+        .normal-wrapper {
+            width: 700px;
+            margin: 0 auto;
+            padding: 15px 40px;
+            overflow: auto;
+        }
+        
+        .logo-icon {
+            color: #000000;
+            font-size: 60pt;
+            float: left;
+        }
+        
+        h1 {
+            float: left;
+            margin: 21px 0 0 25px;
+        }
+        
+        #navbar {
+            list-style-type: none;
+            /* remove bullet points */
+            margin: 29px 0 0 0;
+            padding: 0;
+            float: right;
+            font-size: 16pt;
+        }
+        
+        #navbar li {
+            display: inline;
+            /* make items horizontal */
+        }
+        
+        #navbar li a:link,
+        #navbar li a:visited,
+        #navbar li a:active {
+            text-decoration: none;
+            /* remove underline */
+            color: #000000;
+            padding: 0 16px 0 10px;
+            /* space links apart */
+            margin: 0;
+            border-right: 2px solid #B4B4B4;
+            /* divider */
+        }
+        
+        #navbar li a:link.last-link {
+            /* remove divider */
+            border-right: 0px;
+        }
+        
+        #navbar li a:hover {
+            /* change color on hover (mouseover) */
+            color: #EB6361;
+        }
+        
+        #top-color-splash {
+            width: 100%;
+            height: 4px;
+            background: #EB6361;
+        }
+        
+        #top-color-post {
+            width: 100%;
+            height: 1px;
+            background: #000000;
+        }
+        
+        #top-color-card {
+            width: 100%;
+            height: 4px;
+            background: black;
+        }
+        
+        .one-third {
+            width: 40%;
+            float: left;
+            box-sizing: border-box;
+            /* ensure padding and borders do not increase the size */
+            margin-top: 20px;
+        }
+        
+        .two-third {
+            width: 60%;
+            float: left;
+            box-sizing: border-box;
+            /* ensure padding and borders do not increase the size */
+            padding-left: 40px;
+            text-align: right;
+            margin-top: 20px;
+        }
+        
+        .featured-image {
+            max-width: 500px;
+            /* reduce image size while maintaining aspect ratio */
+        }
+        
+        .no-margin-top {
+            margin-top: 0;
+            /* remove margin on things like headers */
+        }
+        
+        #quote-area {
+            background: #363636;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2px;
+        }
+        
+        h3 {
+            font-weight: normal;
+            font-size: 20pt;
+            margin-top: 0px;
+        }
+        
+        h4 {
+            font-weight: normal;
+            font-size: 16pt;
+            margin-bottom: 0;
+        }
+        
+        .icon-outer {
+            box-sizing: border-box;
+            /* ensure padding and borders do not increase the size */
+            float: left;
+            width: 33.33%;
+            padding: 25px;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .icon-circle {
+            background: #EEEEEE;
+            color: #B4B4B4;
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            /* make rounded corners */
+            margin: 0 auto;
+            border: 2px solid #D6D6D6;
+            box-sizing: border-box;
+            /* ensure padding and borders do not increase the size */
+            font-size: 75pt;
+            padding: 30px 0 0 0;
+            cursor: pointer;
+        }
+        
+        .icon-circle:hover {
+            /* change color on hover (mouseover) */
+            color: #FFFFFF;
+            background: #EB6361;
+            /* red */
+        }
+        
+        h5 {
+            margin: 15px 0 10px 0;
+            font-size: 20pt;
+        }
+        
+        footer {
+            width: 100%;
+            background: black;
+            /* light gray */
+            border-top: 1px solid #D4D4D4;
+            /* dark gray "topline" */
+            height: 20px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        nav {
+            float: left;
+            max-width: 1000px;
+            margin: 20px;
+            padding: 40px;
+        }
+        
+        article {
+            margin-left: 170px;
+            border-left: 1px solid gray;
+            padding: 1em;
+            overflow: hidden;
+        }
+        
+        div.container {
+            width: 100%;
+            border: none;
+        }
+        
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+        /* On mouse-over, add a deeper shadow */
+        
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+        /* Add some padding inside the card container */
+        
+        .containercard {
+            padding: 10px 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="top-bar"></div>
+        <div class="normal-wrapper">
+            <center>
+                <h1>Thông tin cá nhân</h1>
+            </center>
+        </div>
+
+        <div id="top-color-splash"></div>
+        <nav>
+
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/tienmo123/tienmo123.github.io/master/done.png" alt="Avatar" style="width:70%; align-self: center; padding-left: 50px;padding-top: 10px;">
+                <div class="containercard">
+                    <div id="top-color-card"></div>
+                    <h4>
+                        <center><b>Vi Minh Tiến</b></center>
+                    </h4>
+                    <br/>
+                    <li>
+                        Email:onlytien2002@gmail.com
+                    </li>
+                    <li>Github:
+                        <a href="https://github.com/tienmo123"> tienmo123</a></li>
+                    <li>Instagram:<a href="https://www.instagram.com/vm_tien/"> vm_tien</a></li>
+                    <li>Facebook:<a href="https://www.facebook.com/minhtien.vi.73"> Vi Minh Tiến</a></li>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </nav>
+        <article>
+
+            <h1>Bài viết</h1>
+            <br/>
+            <br/>
+            <br/>
+
+            <iframe width="1500" height="500" src="https://spiderum.com/bai-dang/Tien-da-bao-cao-loi-mot-trang-web-nhu-the-nao-pm8?fbclid=IwAR0dRxwxE8TTeywOWafas-JseB67YYzB6eCTHyyC76kgq4XnvTfhaRvRUo8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+            <br/>
+            <div id="top-color-post"></div>
+            <h1>Video</h1>
+            <br/>
+            <br/>
+            <br/>
+
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fminhtien.vi.73%2Fvideos%2F960826037711376%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                allowTransparency="true" allowFullScreen="true"></iframe>
+            <br/>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VxYea5DK9HY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div id="top-color-post"></div>
+            <br/>
+            <br/>
+            <h1>Ảnh</h1>
+            <br/>
+            <br/>
+
+            <nav>
+
+                <img src="https://lh3.googleusercontent.com/8I7Yv6iPrC5rRZ8N4XOpX95vwkqL7WHpHQ04TGNyngixy5oZGenOKZ08J1rMWrZFy06s2yvtq-9z3c3h3M1aXmhRBQarHF2dsmqncOV9EJorYxVGNkMsOfHJ7HYtiMbVbzgtreOdaWXl3BS_pVxGBaPa43E9RyyNMU56VYGfm2VtKCvqIOtXO4uwvkSsKLP_IHpotfZVPH70wBLAzARXN9vt9iKQzeTJRbTvsQjPaZjrsdmDnMl3qydBGdf0i7h1lhyAzeqs1P-qPiAie8X3E93PmokPjKwXWEKsCSCrQztW9-Yh0OMY0PvGxP-Ta9Nnd-GaDj_vB0VmTUl3XZ6dv43qXEEh83AFD-JzuWJmMyuiXWj3Kw3AnYgx80iug5dYBiM18AkKicb_Rbcf7DqoI3iEvibESR3LuxnZaq9AAdiTIwq8uvxLaepy5vz4gOWAFkp2V8x3S1uf-0rvq-a0o9iDa4R2ybdH7ytY3MuCxNZFUt_TjEt17gePrqe2P647SPGjX8D0wTWxwmifaK23io6lveabSMw5MaB4NYOkqEwlW9psyG23JVLkSxfcFTBK7iGEWrxkD1EK29Mgyw6Thrd71qUD4M81mt8QZjwk2JoEV_fnRhrbmNcaU6eGohoyugISqmlnWVAxDdWmWQWQ4SeFeChUIi1vMnUQqCP_XmtkNXQKxjMVr-FcP1iT7kY=w1670-h938-no?authuser=0"
+                    style="width: 40%; padding-left: auto; padding-top: 20px;">
+                <img src="https://lh3.googleusercontent.com/kQL310ykxcuQzh56H1pIRQx9lDApuX-yNTlU8QYxqRGyVlPOE2fRNA0nN5DINuSVRoZConlg_pBH5dTIdC_YSo7kdmp_SuWjC7T5AT9LHmEvh8JE4VxCKJShUaNEYPyQf46-wP6PvF4A04QK0Lfv0ea1MoT1IxvPnFinq0s5mmTDdn8MICsrv2C4m_YSi4VPoTkvEquEaRytiDxVhN_pmH56hzsV1UALho19kq2ADYOkoBywJ0GmvEq8IFGKiqr5Dhk02VHDyxuangpfctJii6SyGK6QHOo_Z6cNJNTdLh-o7F9dtYtkLCiKuJ8k3nAHkx2FxUOwG04k4xQx9qfMMhWleY6AFMCbJtKlEtAy30IvzlmoH3bIkfAKbyXeZxZjwf3ZMgJtBqVMFbbQ6ZBH8nWni9BaWgbATTFQekCsxGVya64EvH3h2c_xI-qb-g54oD-D3vJPIG13d7SpPZU7HyHr_7ww6i4kyPg-uOT1faKlN9sN8DMf6QtSWnclSpywN0KHN68EPj-vR9LBOntq0UDRvrVTvs8qBWsePPeryrGgfJd6E1bBS2RhgWUsDeoulUEtwSo1pYycU6tNYCEvPHI4J9fSDQ_DqM8ZGGRC90oq3J4QzbPv6A6tcYD-2Fm6JGvApBG-wuIhu52oY0HFn-K7Bhh79PwdsuCYUProbe4q5g9sthfIcsArkM0JlQY=w1667-h938-no?authuser=0"
+                    style="width:40%; padding-left: auto; padding-top: 20px;">
+                <img src="https://lh3.googleusercontent.com/o-MgEaAe-g4_8Y1-GCEQM-EUmCrM7W6woxQDCVVJ2maZ5f7paCCjMQnkbFnfbu0-b2NvcO8Wy241SKU3gfp4ff7meXYTSKLK-500Zxm2rfs5DTR987HGDnvKXD8HbJ9q8jm7egM5OnI0oIjSxsXSgo5byRMxTxqHqubBum3srtgwCZZp57RB988xjkelexR0KAG919gzRNxG1JutmZXgB4rHr7a_2Ztf5DkW8F8S4MaKaVISk98RKr9T1tEWXiezbyzRHbZEcr7TIHWxLlBad_qF0V9qC0crQKufD2wgnrMEwX4ZonxsqHiuuuxTnkssJqTciaHsNKt_03ItehhJLyldnXfnT4yr8irn0bK_B7OtP7VcXr3JP3BHEZmanK2TYie_Op2jjcQQA23-EGphmhmIS_h-pkZrUcKAYkDqbKGSE5pqJKIlpVcW8_O-Ek04OpzmmCwhCLDy5ruW7wD24qQvQ_cFO6yf2ZQ35qaSN7Jp_lWGNw4qT61R2eNOOIZzGnB4EPqfOtHf19cTwuaGSQ0hLmx46gL5U5QGuo4JhD1vhWNiHSjU-CT8cjMcYHrR8kUd5luNv6eiyDhwDms27l3weQ_8T1uRO297ZMQgOFXG77pS266vCoZq5Lu0TXtUV0SbyW4e9UKaW7UfDnBKNP3dzuuOpCc5CLooXF565Pv6u6mljlRSqxWaxoQAhuk=w379-h213-no?authuser=0"
+                    style="width:40%; padding-left: auto; padding-top: 20px;">
+                <img src="https://lh3.googleusercontent.com/Zv5EzkJrm50kY-eKsg3h9w8xumO-oIppnOpDO0POP_9ux5B4pnpCXV8pLARRy0kHsHMTHDEZXRyb3frYvID9VytKTU2mi5ICJMkLEeMr2ai_o1BCZqSDWFZ9Dn_VnmI0wrq0ntdcNZtYRKAnP9Y08j5zL4whwIGpzOAAh-hP09QTUJ4P9NZrqgQxJW_h6hhUy7Ceu0UXUrcLn8ox1b10cVdwQvANHVmiO3wUAyZg1tzWETyWgiUhXAsxpoE8sHkBdIR4T-nhUGZMDoWALkJLnNXa_noJU9fIGAiRYzPuICL-xhxmQ3mAZdZydVdXIELt4NiUAzQJYe9G6xaQ_Ndm7I_hsgpxdkoCUVUKkOVAFf-Ag1_-7aO1wv-UqDuTvfmSV4ezXRC_YHhNbAsTTplNOEF6ArTk_vPNRaw1pnvdXjppO7wY4SwpQitwXH1CjSLy1Won_u5GydnKIXWVKOYKfXbJDOZlnI5F-7_VVdGrEtqLdZR0u-1tX7P7hOgWRxxfbmDZGDo-0B4Y72EQaBmVo-ZkKdgN4M8rwd0mE6hxEY684KHIziG0YjYH6J1PKYxKG4MGtUJgmYEHUABcbpYTWePECnoyVj6phN6Gbtcv5zo5hRMUKFJzasSf0hcbVBpdUBYwYZr9uUaYIyg53iAs0tXkMq641yTQxadC0788Sn8S_rS99jsXLqFwI5lWyzY=w1667-h938-no?authuser=0"
+                    style="width:40%; padding-left: auto; padding-top: 20px;">
+                <img src="https://lh3.googleusercontent.com/Br1-vZ_3Dm-giz-ckeZUtSciSdwMqOV50fkKYm_mWp8Zd5pEVigCDPpbTTfCPNQvwqG-fRUoN-9DRrUBbWPUaMABjv3dJNwBtNPTDFuiAFufY5WTPOTjMDaF5jtKp06u2Cq0KIOalNsbSI485_LxC2RSFbPZO4SN3v6I_3WIIS1GIgcUEwl0tuq3F4uiTV7rI0PJC-eiIDPO3KZrTVGhNnw-3EguKzNwZj63GwJK3eoQypcSp--_c4LN_OtqzlsRsy28nUY_fd75v6YdeghTDqrgs7CfT-BRoGaaf8sPJM9VPD1EScWO9ASMHHgoi0yfh4dNrYQ6SljA0pXMKnjkM7b4ADT4qIJ2ofXAI_OhyOz2duwV_S4A09A6baudAVfvJSGdpNqrzRl3MKQn2RZYDGHJrpTQBFPQAuKZfminGxDOQfQmm_L_50kueOr_6VSAfapfAuOx8Q9J6hiQ6sfO5MxU96DPQ9kEbb7L-eZtx2o8NKFqi_rTENdz1yt11Qz6GJIy-ZOdnEmkP7OVrB3_ArkiHVvATEzwbXjMGWtH9nIYj28VDqJP-e4L2rPMAdXsFYlEe_IVUo0eko40-o6Um20I3OP2LT81s38qtROz9VXtECJ7xvY_vphyFxlK5a8fSA5JNMU_mPwNqAF9MEL7OKbvMrOJK9acTFz-XA889q9G2-EKXbOPgxdJQUW52B0=w379-h213-no?authuser=0"
+                    style="width:40%; padding-left: auto; padding-top: 20px;">
+                <img src="https://lh3.googleusercontent.com/Lb9ss91MkJ2oQYFEWZBizxNclT3LkWd-y2PaNunDDqRyhnxGqfrmvtX3LfgahwQpMdep4_SuwfMFTl_DHVHp3mWI_89a7nOVn4Z-UBAzV3xygw0SQzs6tV2w_JV9kCTBWsx3uuqKsBKrJXQ0AyhPOiH0WdYl2eoqiKXmivSXPoScKwbQ9i4u7J1m0ecwxCb4BK_TYegdseliNnHLL6MuhuJy468htZKQfIcMibgSJiInFOi9AA_c_JKOpaRyiX4gpoDAMYkeUgXnIcmQxN8O9atdVLMCuj20VeNt34HrortTrol4MWTAHsAcYPNKe0xLhwf4qhETgujcWO0bNNmSLWGDn-kqodH4LgQk2_t5-L0xXo1znHNkNkyUfAELJFL02Su0eHNirbWvv2uVhRoMLLr79nXNpBg56QCJn-X-XaBpdX80UYdzUzlPHJIwc_WL3f8KjAtFAbihRJBqFqCrVsqSJa2EUTcly-GdNyR4esZLNn4HOLNJxg4W-mmcBsnaIo_RBHYtTF29h_Vii3qbJSN-G9p60J2rxv-_96iTcPzf_PlMXl-zrC7yvk1C6JwYjOxDetJk9rvI37kF9uIfmm709AAJm4Ssos3aFNqo0UtfYCf-YPiPDA91VCrYWppJtsbntwOc9q1Tlm2EQ1No568CDPY9rnNp6fbmxLrYEhPFZHgLaVaV417A7a0TDho=w379-h213-no?authuser=0"
+                    style="width:40%; padding-left: auto; padding-top: 20px;">
+                <img src="https://lh3.googleusercontent.com/V08uandEGMVS1PNzDEE03V1qB665MqLwa1JnOk_eUcp7la9TJw_ZPir78THnyh1-FHXxm1dVTJhljEx-yay8uG9JLJCcnOKS1eo6wy-2AD91ZvAbSbgYb6q7B-d9DHzUDGyDM8UR19TrkdPqAfPMKiPm9QoG45ll_Vdvp9kFI5gKDWCTI0GBISH3MFHYl5xzbKMJxwYdpmcmyvkQKOdLJcT43PEfBFe7krNOu9M8rJlpzI80VIE9YWIw7m_AAXasS2QpahP7qG0VdC6L20Wj1Qj6KyvrZ3sXcEw3hp4E_K5Qin-wIFxthVjDr8CGHSXd9DdFdilVUEGrObo-5KuJz7B-Gmw2WAMxAAy5cVXCRcxGp3abNsm3MxkTa-Fnd5-814atMVglycP41fX6o1_nxJJ_ZNWsdbCsgLDpe-f6lusA7zq3quzn7DhbOBVVKvDgPih8bt9QkwFzKxUI21bB9prvnhEEyq8RAxNPAc3S3Aylv1RL9tt1trci4_yS4UFanznFfNxpHxNX9Fhn8cAGOds5_EfjAScwXSHVvGQBn6iJc1DxLeqSv7B7VpJHyQm-1juRYhjs8jo93FW2EBoLgkJ5p2DQwY_2M6Dab0YL5AgO5LeANzWXGXjRV7EKj9qfgZm-ZyHYpgaS5aW35CDOAj_G3meZTbOFxOG9x0nzxR7JdxN-void8jQNljYCKp8=w1667-h938-no?authuser=0"
+                    style="width:40%; padding-left: auto; padding-top: 20px;">
+                <img src="https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.0-9/91384839_899609400499707_6916055235383263232_o.jpg?_nc_cat=100&_nc_sid=e007fa&_nc_oc=AQl4i3iG88kjml-a0m96R-sRfRvfA1JawnNFJ86wIrZ0KsxJ-3bosa1axvgGtYFwvj8aTtQly3pkHsLCEUJu6OGX&_nc_ht=scontent.fsgn5-5.fna&oh=aac6af8fac22b0db0972fe4faa0d9e5a&oe=5F315188"
+                    style="width:40%; padding-left: auto; padding-top: 20px;">
+
+            </nav>
+        </article>
+    </div>
+    <div id="top-color-splash"></div>
+
+    <div class="normal-wrapper">
+        <div class="icon-outer">
+            <div class="icon-circle">
+                <i class="fa fa-youtube"></i>
+            </div>
+            <h5>YouTube</h5>
+            <p>updating.....</p>
+        </div>
+
+        <div class="icon-outer">
+            <div class="icon-circle">
+                <i class="fa fa-camera-retro"></i>
+            </div>
+            <h5>Photos</h5>
+            <p>Giống cái bên kia :v</p>
+        </div>
+
+
+
+        <div id="footer"></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            /* JavaScript goes here, at the bottom of the page */
+            $(document).ready(function() {
+                // run once the page is ready
+                var time = 2500;
+                // get the image containers
+                $im1 = $('#f-image-1');
+                $im2 = $('#f-image-2');
+                $im3 = $('#f-image-3');
+
+                setInterval(function() {
+                    // call function every x milliseconds (defined in time variable above)
+                    changeImage();
+                }, time);
+
+                var currentImage = 1;
+
+                function changeImage() {
+                    switch (currentImage) {
+                        case 1:
+                            // show image 2
+                            $im1.hide();
+                            $im2.show();
+                            $im3.hide();
+                            currentImage = 2;
+                            break;
+                        case 2:
+                            // show image 3
+                            $im1.hide();
+                            $im2.hide();
+                            $im3.show();
+                            currentImage = 3;
+                            break;
+                        default:
+                            // show image 1
+                            $im1.show();
+                            $im2.hide();
+                            $im3.hide();
+                            currentImage = 1;
+                    }
+                }
+            });
+        </script>
+
+    </div>
+</body>
+
+
+</html>
