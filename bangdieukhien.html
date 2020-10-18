@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <!-- boostrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>BẢNG ĐIỀU KHIỂN</title>
+
+    <!--dong bang-->
+    <style>
+        .like {
+            text-align: center;
+            padding-left: 80px;
+        }
+        
+        .love {
+            text-align: center;
+            padding-left: 80px;
+        }
+        
+        .haha {
+            text-align: center;
+            padding-left: 80px;
+        }
+        
+        .wow {
+            text-align: center;
+            padding-left: 80px;
+        }
+        
+        .sad {
+            text-align: center;
+            padding-left: 80px;
+        }
+        
+        .angry {
+            text-align: center;
+            padding-left: 80px;
+        }
+        
+        span {
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 10vw;
+            font-weight: 900;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            background-size: 120% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -ms-background-clip: text;
+            -ms-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            background-image: linear-gradient(45deg, #7794ff, #44107A, #FF1361, #FFF800);
+            animation: .8s shake infinite alternate;
+            font-size: 30px;
+        }
+        
+        @keyframes shake {
+            0% {
+                transform: skewX(-15deg);
+            }
+            5% {
+                transform: skewX(15deg);
+            }
+            10% {
+                transform: skewX(-15deg);
+            }
+            15% {
+                transform: skewX(15deg);
+            }
+            20% {
+                transform: skewX(0deg);
+            }
+            100% {
+                transform: skewX(0deg);
+            }
+        }
+    </style>
+    <!--*********************///////////////////////////-->
+</head>
+
+<body>
+    <!--content-->
+    <!--navbar-->
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <center> <kbd style="color: red;">STREAMER SUPPORT</kbd></center>
+        </nav>
+    </div>
+    <!--*********************-->
+    <br/>
+    <!--container-->
+    <div class="container-fluid">
+        <!--/container-->
+        <div class="form-group">
+            <!--INPUTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT-->
+            <center><kbd style="font-size: 35px;">BẢNG ĐIỀU KHIỂN</kbd></center>
+            <br/>
+            <br/>
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="tok">Token:</label>
+                        <input type="text" class="form-control" id="saveToken" placeholder="EAA....">
+                    </div>
+                    <div class="form-group">
+                        <label for="Post">ID Post:</label>
+                        <input type="text" class="form-control" id="saveID" placeholder="1000...">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="Save">Submit</button>
+                </form>
+                <center>
+                    <b id="status"></b>
+                </center>
+                <hr/>
+            </div>
+
+        </div>
+        <!--*******SCRIPT INPUT******-->
+        <script>
+            var save_button = document.getElementById('Save')
+            save_button.onclick = saveData;
+
+
+            function saveData() {
+                var input = document.getElementById("saveToken");
+                localStorage.setItem("tokenstore", input.value);
+                var storedValue = localStorage.getItem("tokenstore");
+
+                var input = document.getElementById("saveID");
+                localStorage.setItem("IDstore", input.value);
+                var storedValue = localStorage.getItem("IDstore");
+                document.getElementById("status").innerHTML = "Đã lưu token và ID. Bấm Refresh để tiếp tục."
+            }
+        </script>
+        <!--******************************************//INPUT*******************************************-->
+
+        <!--------------------------------------------FEARTURE-------------------------------------------->
+        <!--refresh-->
+        <div class="container-fluid">
+            <div class="container">
+                <button type="submit" class="btn btn-danger" onClick="refreshPage()">Refresh</button>
+            </div>
+        </div>
+        <!--Script refresh-->
+
+        <script>
+            function refreshPage() {
+                window.location.reload();
+            }
+        </script>
+
+        <!---------------------REACTION---------------------->
+        <CENTER>
+            <CODE style="font-size: 30px;">REACTION</CODE>
+        </CENTER>
+        <br/>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="like">
+                    <img src="LIKE.gif" style="width:90px;height:90px;">
+                    <br/>
+                    <span id="like">0</span>
+                </div>
+                <div class="love">
+                    <img src="LOVE.gif" style="width: 90px;height: 90px;">
+                    <br/>
+                    <span id="love">0</span>
+                </div>
+                <div class="haha">
+                    <img src="HAHA.gif" style="width: 90px;height: 90px;">
+                    <br/>
+                    <span id="haha">0</span>
+                </div>
+                <div class="wow">
+                    <img src="WOW.gif" style="width: 90px;height: 90px;">
+                    <br/>
+                    <span id="wow">0</span>
+                </div>
+                <div class="sad">
+                    <img src="SAD.gif" style="width: 90px;height: 90px;">
+                    <br/>
+                    <span id="sad">0</span>
+                </div>
+                <div class="angry">
+                    <img src="ANGRY.gif" style="width: 90px;height: 90px;">
+                    <br/>
+                    <span id="angry">0</span>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <button type="button" class="btn btn-secondary" onclick="Popup()">Tạo popup</button>
+    </div>
+
+    <!--SCRIPT REACTTTTTTTTTTTTTTTTTTTT-->
+    <script>
+        $(document).ready(function() {
+            var token = localStorage.getItem("tokenstore");
+            $.getJSON("https://graph.facebook.com/me?access_token=" + token, null, function(data) {
+                if (data.error == null) {
+                    var postID = localStorage.getItem("IDstore");
+                    var handle = setInterval(function(e) {
+                        $.getJSON("https://graph.facebook.com/v7.0/" + postID + "?fields=reactions.type(LIKE).limit(0).summary(true).as(reactions_like),reactions.type(HAHA).limit(0).summary(true).as(reactions_haha),reactions.type(LOVE).limit(0).summary(true).as(reactions_love),reactions.type(WOW).limit(0).summary(true).as(reactions_wow),reactions.type(ANGRY).limit(0).summary(true).as(reactions_angry),reactions.type(SAD).limit(0).summary(true).as(reactions_sad)&access_token=" + token, null, function(e) {
+                            if (e.error == null) {
+                                var like = e.reactions_like.summary.total_count;
+                                var haha = e.reactions_haha.summary.total_count;
+                                var love = e.reactions_love.summary.total_count;
+                                var wow = e.reactions_wow.summary.total_count;
+                                var angry = e.reactions_angry.summary.total_count;
+                                var sad = e.reactions_sad.summary.total_count;
+                                $("#like").text(like);
+                                $("#haha").text(haha);
+                                $("#love").text(love);
+                                $("#wow").text(wow);
+                                $("#angry").text(angry);
+                                $("#sad").text(sad);
+                            } else {
+                                clearImmediate(handle);
+                                alert("Lỗi ID");
+                            }
+                        });
+                    }, 1000);
+
+                } else {
+                    alert("Lỗi token");
+                }
+            });
+        });
+    </script>
+    <!--SCRIPT TẠO POPUPPPPPPPPPPPPPPP-->
+    <script>
+        function Popup() {
+            let params = 'top=0,left=0,width=800,height=200,menubar=no,toolbar=no,location=no,status=no,resizable=no,scrollbars=no'
+            open('Popupreact.html', 'test', params);
+        }
+    </script>
+    <!------------------------------COMMENT----------------------->
+    <div class="container">
+        <br/>
+        <center>
+            <code style="font-size: 30px;">COMMENT</code>
+        </center>
+        <div class="card">
+
+
+        </div>
+
+
+
+
+        <hr/>
+    </div>
+    </div>
+</body>
+
+</html>
