@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lì xì Tiến</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+        }
+        
+        .flipcard {
+            perspective: 1000px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .flipcard .flipcard-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flipcard .card-front,
+        .flipcard .card-back {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            backface-visibility: hidden;
+            transition: all .3s;
+        }
+        
+        .flipcard .card-front {
+            z-index: 2;
+        }
+        
+        .flipcard .card-front::after {
+            content: "";
+            display: block;
+            width: 0;
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            border-width: 16px 16px 0 0;
+            border-style: solid;
+            border-color: #999 #fff;
+            border-radius: .25rem 0 0 0;
+        }
+        
+        .flipcard .card-back {
+            position: absolute;
+            top: 0;
+            text-align: left;
+            z-index: 1;
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+        /* the flippy magic */
+        
+        .flipcard:hover .flipcard-wrap {
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <center>
+            <h1><kbd>ANH EM CHỌN HÌNH THỨC LÌ XÌ CHO MÌNH NHÓ !!!</kbd></h1>
+            <br/>
+        </center>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="flipcard">
+                    <div class="flipcard-wrap">
+                        <div class="card card-front">
+                            <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.15752-9/146106974_508368266800956_1138114561489640999_n.jpg?_nc_cat=101&ccb=2&_nc_sid=ae9488&_nc_ohc=nvtjAAKwRWUAX9GsNLQ&_nc_ht=scontent.fsgn5-1.fna&oh=46c681cb8b9c1c05a338e2f5c7829ee8&oe=6041D9F3"
+                                alt="Đây là Viettelpay nhá" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Đây là Viettelpay nhá</h5>
+                            </div>
+                        </div>
+                        <div class="card card-back">
+                            <div class="card-body">
+                                <center>
+                                    <code style="font-size: 30px;">Anh em nào xài Viettelpay thì có thể chuyển lì xì cho Tiến qua số tài khoản 9704229202294299743 hoặc anh em có thể quét cái mã QR ở đằng trước kia cũng được nhó, cám ơn người anh em!!!</code>
+                                </center>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="flipcard">
+                    <div class="flipcard-wrap">
+                        <div class="card card-front">
+                            <img src="https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.15752-9/145835552_250354599827431_1572808609309190406_n.jpg?_nc_cat=100&ccb=2&_nc_sid=ae9488&_nc_ohc=-XcM284FVcIAX_6HgAr&_nc_ht=scontent.fsgn5-5.fna&oh=fe5af2f914a99c87b8ffe4c866d45b60&oe=603F2219"
+                                alt="Bên này là momo" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Bên này là momo</h5>
+                            </div>
+                        </div>
+                        <div class="card card-back">
+                            <div class="card-body">
+                                <center>
+                                    <code style="font-size: 30px;">
+                                       Phổ biến nhất chắc có lẽ là momo nhể, anh em dùng momo có thể bắn vào số 0886405366 hoặc quét QR ở đằng trước cũng được nhá, cám ơn người anh em!!!
+                                   </code>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="flipcard">
+                <div class="flipcard-wrap">
+                    <div class="card card-front">
+                        <img src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.15752-9/144451060_264684381682451_2448223376503132256_n.jpg?_nc_cat=111&ccb=2&_nc_sid=ae9488&_nc_ohc=8WNTq_p-pjoAX9cS6bG&_nc_ht=scontent-sin6-1.xx&oh=8f8b2f1e30d57d47fd2b24365c650cab&oe=60420B72" alt="Còn đây là Viettinbank"
+                            class="card-img-top">
+                        <div class="card-body">
+                            <h5>Còn đây là Viettinbank</h5>
+                        </div>
+                    </div>
+                    <div class="card card-back">
+                        <div class="card-body">
+                            <center>
+                                <code style="font-size: 30px;">                                    
+                                Nếu như anh em không sử dụng Viettelpay hay momo thì vẫn còn một phương án choanh em lựa chọn, đó là Viettinbank nhó....
+                                    </code>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <hr/>
+    </footer>
+</body>
+
+</html>
